@@ -1,0 +1,35 @@
+local s = Instance.new("Sound", workspace)
+local sid = "rbxassetid://962968105"
+s.Name = "Fard"
+s.Looped = true
+s.Playing = true
+
+s.SoundId = sid
+
+rconsolename("Microsoft support")
+rconsolewarn("It seems like your computer has been infected by a virus!".. "\n")
+wait(0.3)
+rconsolewarn("Please press Y to continue or X to close.".. "\n")
+
+local function booo()
+    local script = Instance.new("LocalScript", game.Players.LocalPlayer)
+
+    local u = game:GetService("UserInputService")
+
+u.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Y then
+        rconsoleinfo("We are going to write a file for your computer. Deleting it may cause issues with your OS.".. "\n")
+        writefile("VirusDeleter.txt", math.random(0, 999) .. "." .. math.random(0, 99) .. ".".. math.random(0, 999))
+        script:Destroy()
+   end
+end)
+u.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.E then
+        rconsoleprint("Close".. "\n")
+        rconsoleclose()
+        script:Destroy()
+   end
+end)
+end
+
+coroutine.wrap(booo)()
